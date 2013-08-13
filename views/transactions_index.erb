@@ -1,0 +1,47 @@
+<div id="debt-box">
+	<% if @total < 0 %>
+		<p>
+			<span id="total-debt">$<%= sprintf('%.2f', @total.abs) %></span>
+			<span id="name"> | <%= @user_one %> owes</span>
+		</p>
+	<% elsif @total > 0 %>
+		<p>
+			<span id="total-debt">$<%= sprintf('%.2f', @total.abs) %></span>
+			<span id="name"> | <%= @user_two %> owes</span>
+		</p>
+	<% else %>
+		<p>
+			<span id="total-debt">Balanced</span>
+			<span id="name"> | Nobody owes!</span>
+
+		</p>
+	<% end %>
+</div><!-- // debt-box -->
+
+<div id="search-bar">
+	<p> </p>
+</div><!-- // search-box -->
+
+<div id="new-transaction">
+	<%= partial :transaction_form, :locals => {:action=>'/transaction', :method=>:'post', :back => '/', :transaction => @transaction } %>
+</div><!-- // new-transaction -->
+	
+<div id="transactions-list">
+	<ul id="transactions">
+	<% @grouped_transactions.each do |date, transactions| %>
+		<li class="group <%= date %>">
+			<p class="date"><%= date.strftime("%A, %B %d, %Y") %></p>
+			<ul class="single-transaction">
+		  	<% transactions.each do |transaction| %>
+		  		<%= partial :transaction, :locals => {:transaction => transaction} %>
+		  	<% end %>
+	  	</ul>
+	  </li>
+	<% end %>
+	</ul>
+</div><!-- // transactions-table -->
+
+<div id="edit-transaction">
+	<!-- AJAX load edit form -->
+</div><!-- // edit-transaction -->
+

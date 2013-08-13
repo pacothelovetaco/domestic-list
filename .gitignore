@@ -1,0 +1,26 @@
+*.gem
+*.rbc
+.bundle
+.config
+coverage
+InstalledFiles
+lib/bundler/man
+pkg
+rdoc
+spec/reports
+test/tmp
+test/version_tmp
+tmp
+.DS
+.sass-cache/*
+
+# YARD artifacts
+.yardoc
+_yardoc
+#doc/
+
+init.rb
+*.swp
+*.swo
+*.!sync
+

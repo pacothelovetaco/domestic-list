@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+   "http://www.w3.org/TR/html4/loose.dtd">
+
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width" />
+	<title>Domestic List</title>
+
+  <link rel="stylesheet" href="/stylesheets/css/app.css" />
+  <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js">
+  <script src="/js/vendor/custom.modernizr.js"></script>
+  <script src="/js/app.js"></script>
+</head>
+<body>
+	<div id="row" class="wrapper">
+    <header id="title-bar">
+  		<div id="title">Domestic List</div>
+      <div id="link"><a href="#" id="add-transaction">New Transaction</a></div>
+  	</header>	
+    <%= yield %>
+  </div>
+</body>
+</html>

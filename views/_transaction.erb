@@ -1,0 +1,16 @@
+<li class="transaction id-<%= transaction.id %>">
+	<form id="delete_<%= transaction.id%>" action="/transactions/<%= transaction.id %>" method="post"><input type="hidden" name="_method" value="delete" />
+		<div class="transaction-left">
+			<p class="transaction-user"><%= transaction.user %></p>
+			<p class="transaction-descrip"><%= transaction.description %></p>
+		</div>
+		<div class="transaction-right">
+			<p class="transaction-amount">+<%= sprintf('%.2f', transaction.amount) %></p>
+			<p class="transaction-cat"><%= transaction.category %></p>
+		</div>
+		<div class="show-buttons buttons" style="display:none;">
+			<a href="#" class="edit-btn" data-id=<%= transaction.id %>>Edit</a>
+			<a href="#" class="delete-btn" data-id=<%= transaction.id %>>Delete</a>
+		</div>
+	</form>
+</li><!-- // transaction -->

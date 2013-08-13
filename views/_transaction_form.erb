@@ -1,0 +1,30 @@
+<form action="/transactions<%= "/#{transaction.id}" unless transaction.new? %>" method="post">
+<%= "<input type=\"hidden\" name=\"_method\" value=\"put\" />" unless transaction.new? %>
+  <p>
+    <select id="user" name="user">
+      <option value="">Choose Payee</option>
+      <% Transaction::USERS.each do |user| %>
+        <option value="<%= user %>" <%= @payee == user ? "selected" : "" %>><%= user %></option>
+      <% end %>
+    </select>
+  </p>
+  <p>
+  	<label>Description</label>
+  	<input type="text" name="description" value="<%= transaction.description %>"/>	
+  </p>
+  <p>
+  	<label>Amount</label>
+  	<input type="text" name="amount" value="<%= transaction.amount.to_f %>" placeholder="0.00"/>	
+  </p>
+
+  <select class="center" id="category" name="category">
+    <option value="">Choose Category</option>
+    <% Transaction::CATEGORIES.each do |category| %>
+      <option value="<%= category %>" <%= @category == category ? "selected" : "" %>><%= category %></option>
+    <% end %>
+  </select>
+
+  <p>
+  	<input type="submit" />  <a href="#" id=<%= transaction.new? ? "cancel-btn" : "edit-cancel-btn" %> class="button">Cancel</a>
+  </p>
+</form>
