@@ -23,4 +23,5 @@ init.rb
 *.swp
 *.swo
 *.!sync
-
+Capfile
+deploy.rb
